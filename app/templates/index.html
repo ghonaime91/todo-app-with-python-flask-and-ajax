@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>Todo App</title>
+
+</head>
+<body>
+    <section class="vh-100 gradient-custom">
+        <div class="container py-5 h-100">
+            
+          <div class="row d-flex justify-content-center align-items-center h-100">
+            
+            <div class="col col-xl-10">
+      
+              <div class="card">
+                <h1 class="text-center mt-5">Todo App</h1>
+                <div class="alert alert-danger mt-3" style="display: none;" id="error"></div>
+                <div class="card-body p-5">
+                                     
+                    <form id='formList' class="d-flex justify-content-center align-items-center mb-4">
+                        <div class="form-outline flex-fill">
+                          <input type="text" id="form1" class="form-control" />
+                          <label class="form-label" for="form2">New list...</label>
+                        </div>
+                        <button type="submit" id="btn1" class="btn btn-info ms-2" style="margin-bottom: 4vh;width:8vw">Create a list</button>
+                      </form>
+                
+
+                  <form id="formTask" class="d-flex justify-content-center align-items-center mb-4">
+                    <div class="form-outline flex-fill">
+                      <input type="text" id="form2" class="form-control" />
+                      <label class="form-label" for="form2">New task...</label>
+                    </div>
+                    <button type="submit" id="btn2" class="btn btn-info ms-2" style="margin-bottom: 4vh;width:8vw">Add a task</button>
+                  </form>
+
+                  <!-- Tabs navs -->
+                  <ul class="nav nav-tabs mb-4 pb-2" id="list" role="tablist">
+                    {% if lists %}
+                      {% for list in lists %}
+                      <li class="nav-item list-item"  data-id="{{ list.id }}">
+                        <a class="nav-link active"   href="{{ url_for('get_list',list_id=list.id) }}" >{{ list.title }} </a>
+                        <button >x</button> </li>
+                      {% endfor %}
+                    {% endif %}
+                  </ul>
+                  <!-- Tabs navs -->
+      
+                  <!-- Tabs content -->
+                  <div class="tab-content" id="ex1-content">
+                    <div class="tab-pane fade show active" id="ex1-tabs-1" role="tabpanel"
+                      aria-labelledby="ex1-tab-1">
+                      <ul class="list-group mb-0" id="tasks">
+                        {% if data %}
+                            {% for task in data %}
+                                <li class="list-group-item d-flex align-items-center border-0 mb-2 rounded"
+                                 {% if task.completed %} style='text-decoration:line-through;' {%  endif %}>
+                                <input class="form-check-input  me-2" 
+                                data-id="{{ task.id }}" type="checkbox"{% if task.completed %}checked{%  endif %} />
+                                <s>{{task.description}}</s> <button class=" del-task btn btn-outline-danger"
+                                style="position: absolute; right: 5px;">X</button>
+                                </li> 
+                            {% endfor %}
+                        {% endif %}
+                      </ul>
+                    </div>
+                    
+                  <!-- Tabs content -->
+      
+                </div>
+              </div>
+      
+            </div>
+          </div>
+        </div>
+      </section>
+    <script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>

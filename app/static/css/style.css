@@ -1,0 +1,54 @@
+
+
+/* .gradient-custom {
+    background: radial-gradient(50% 123.47% at 50% 50%, #00ff94 0%, #720059 100%),
+    linear-gradient(121.28deg, #669600 0%, #ff0000 100%),
+    linear-gradient(360deg, #0029ff 0%, #8fff00 100%),
+    radial-gradient(100% 164.72% at 100% 100%, #6100ff 0%, #00ff57 100%),
+    radial-gradient(100% 148.07% at 0% 0%, #fff500 0%, #51d500 100%);
+    background-blend-mode: screen, color-dodge, overlay, difference, normal;
+    } */
+    body{
+        background-image: url('../img/1.jpg');
+        background-repeat:repeat; 
+        background-size:cover;
+    }
+    s{
+        text-decoration: none !important;
+        margin-left: 1%;
+        font-size: larger;
+        color: blueviolet;
+        overflow:auto;
+        
+    }
+
+    #tasks li{
+        background-color: #f4f6f7;
+        
+    }
+    input[type='checkbox'] {
+             
+        transform: scale(1.4);
+    }
+    .card {
+        width: 70%;
+        margin: auto auto;
+    }
+
+.list-item button {
+    display: inline !important;
+    border: none;
+    background-color: #fff;
+    color: red;
+}
+.list-item a{
+    display: inline !important;
+    cursor:pointer;
+}
+
+.activate {
+    color:#8A2BE5 !important;
+    font-weight: 500;
+    font-size: larger;
+    
+}

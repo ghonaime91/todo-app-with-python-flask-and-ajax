@@ -11,7 +11,7 @@ the page is not refreshed because I used AJAX techniques (async, await, fetch)و
 ## Technologies used in the project:
 * HTML 5, CSS 3, JavaScript with AJAX (fetch, async , await) .
 * Bootstrap 4.
-* Flask frame work (Pyhton) for server side .
+* Flask frame work (Python) for server side .
 * sqlite database.
 ## To run this app
 * after cloning the project:
